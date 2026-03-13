@@ -1,5 +1,6 @@
 import { useRouter, usePathname, Slot } from "expo-router";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { View } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function Layout() {
 	const router = useRouter();
@@ -7,7 +8,9 @@ export default function Layout() {
 
 	return (
 		<SafeAreaProvider>
-			<Slot></Slot>
+      <View style={{backgroundColor: '#ff00ff', flex: 1}} >
+			  <Slot></Slot>
+      </View>
 		</SafeAreaProvider>
 	);
 }
