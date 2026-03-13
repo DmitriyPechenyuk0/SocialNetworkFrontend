@@ -1,45 +1,13 @@
-import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
+import { useRouter, usePathname, Slot } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-export default function RootLayout (){
-    return (
-        <>
-            <StatusBar style="light" />
-            <SafeAreaProvider>
-                <Stack>
-                    <Stack.Screen
-                    name='index'
-                    options={{
-                        headerShown: true
-                    }}
-                    />
+export default function Layout() {
+	const router = useRouter();
+	const pathname = usePathname();
 
-                    <Stack.Screen
-                    name='myPublications'
-                    options={{
-                        headerShown: true
-                    }}
-
-                    />
-
-                    <Stack.Screen
-                    name='friends'
-                    options={{
-                        headerShown: true
-                    }}
-
-                    />
-                    <Stack.Screen
-                    name='chats'
-                    options={{
-                        headerShown: true
-                    }}
-
-                    />
-
-                </Stack>
-            </SafeAreaProvider>
-        </>
-    )
+	return (
+		<SafeAreaProvider>
+			<Slot></Slot>
+		</SafeAreaProvider>
+	);
 }

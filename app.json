@@ -25,6 +25,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": ["expo-image", "expo-router"],
+		"scheme": "social-network-scheme",
+		"experiments": {
+			"typedRoutes": true
+		}
   }
 }
