@@ -1,0 +1,20 @@
+import Svg, { Path, type SvgProps } from "react-native-svg";
+
+export function Logout(props: SvgProps) {
+    return (
+        <Svg
+            width={16}
+            height={16}
+            viewBox="0 0 16 16"
+            {...props}
+            >
+            <Path
+                d="M.938.04h5a.898.898 0 110 1.795H1.835V13.79h4.103a.898.898 0 110 1.795h-5a.898.898 0 01-.898-.898V.938A.898.898 0 01.937.04zM11.56 3.79a.9.9 0 01.636.263l3.125 3.125a.899.899 0 010 1.271h0l-3.126 3.125a.9.9 0 11-1.271-1.271l1.525-1.525.069-.068H5.937a.898.898 0 110-1.795h6.582l-.069-.068-1.524-1.523a.9.9 0 01.636-1.535z"
+                stroke="#543C52"
+                strokeWidth={0.08}
+                fillOpacity={1}
+                strokeOpacity={1}
+            />
+        </Svg>
+    );
+}
