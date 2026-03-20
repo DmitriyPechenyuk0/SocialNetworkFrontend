@@ -48,10 +48,10 @@ export default function Friends() {
 					</TouchableOpacity>
 				</View>
 
-				{activeTab === 'main' && <View style={styles.content}><Text>Особиста інформація</Text></View>}
-				{activeTab === 'requests' && <View style={styles.content}><Text>Запити</Text></View>}
-				{activeTab === 'recommendations' && <View style={styles.content}><Text>Рекомендації</Text></View>}
-				{activeTab === 'all friends' && <View style={styles.content}><Text>Усі друзі</Text></View>}
+				{activeTab === 'main' && <View style={styles.content}><Text></Text></View>}
+				{activeTab === 'requests' && <View style={styles.content}><Text></Text></View>}
+				{activeTab === 'recommendations' && <View style={styles.content}><Text></Text></View>}
+				{activeTab === 'all friends' && <View style={styles.content}><Text></Text></View>}
 			</View>
     )
 }
