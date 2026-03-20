@@ -12,8 +12,8 @@ export const ICONS = {
 	MyPublicationsIcon,
 	FriendsIcon,
 	ChatsIcon,
-    Logo,
+	Logo,
 	Logout,
 	Plus,
-	Settings
+	Settings,
 };

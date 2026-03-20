@@ -1,2 +1,2 @@
-export { FONT_SIZE } from './text'
-export { COLORS } from './colors'
+export { FONT_SIZE } from "./text";
+export { COLORS } from "./colors";

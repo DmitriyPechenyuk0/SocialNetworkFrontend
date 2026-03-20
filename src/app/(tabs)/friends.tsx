@@ -1,5 +1,9 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Friends() {
-	return <SafeAreaView style={{flex: 1, backgroundColor: '#FAF8FF'}}></SafeAreaView>
+	return (
+		<SafeAreaView
+			style={{ flex: 1, backgroundColor: "#FAF8FF" }}
+		></SafeAreaView>
+	);
 }

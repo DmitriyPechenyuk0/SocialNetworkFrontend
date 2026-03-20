@@ -4,12 +4,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
 	return (
-    <>
-      <StatusBar></StatusBar>
+		<>
+			<StatusBar></StatusBar>
 
-      <Redirect href={"/(tabs)"}></Redirect>
-
-    </>
-  
-    )
+			<Redirect href={"/(tabs)"}></Redirect>
+		</>
+	);
 }
