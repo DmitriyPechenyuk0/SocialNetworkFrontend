@@ -14,6 +14,14 @@ export default function TabLayout() {
 		<Tabs
 			screenOptions={{
 				header: () => <Header />,
+        tabBarItemStyle: {
+          flexDirection: "row",
+          justifyContent: 'space-around'
+        },
+        tabBarStyle:{
+          justifyContent: 'center',
+          alignItems: 'center'
+        }
 			}}
 		>
 			<Tabs.Screen
@@ -67,7 +75,7 @@ export default function TabLayout() {
 							<ICONS.MyPublicationsIcon fill="none" />
 							<Text
 								style={{
-									width: "100%",
+									width: "130%",
 								}}
 							>
 								Мої Публікації
