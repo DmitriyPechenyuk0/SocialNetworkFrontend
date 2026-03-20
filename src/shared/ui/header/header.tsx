@@ -6,11 +6,11 @@ import { Button } from "../button";
 const style = StyleSheet.create({
 	header: {
 		flexDirection: "row",
-		height: 60,
+		height: 80,
 		justifyContent: "space-between",
 		alignItems: "center",
 		backgroundColor: "#ffffff",
-		paddingHorizontal: 5,
+		paddingHorizontal: 20,
 	},
 	buttons: {
 		flexDirection: "row",

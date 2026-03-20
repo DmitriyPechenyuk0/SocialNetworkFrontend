@@ -29,12 +29,19 @@ export default function TabLayout() {
 								borderTopColor: focused
 									? COLORS.plum
 									: "transparent",
-								width: "300%",
+								width: "auto",
 								marginTop: 4,
+								paddingHorizontal: 6,
 							}}
 						>
 							<ICONS.HomeIcon fill="none" />
-							<Text>Головна</Text>
+							<Text
+								style={{
+									width: "100%",
+								}}
+							>
+								Головна
+							</Text>
 						</View>
 					),
 				}}
@@ -52,12 +59,19 @@ export default function TabLayout() {
 								borderTopColor: focused
 									? COLORS.plum
 									: "transparent",
-								width: "300%",
+								width: "auto",
 								marginTop: 4,
+								paddingHorizontal: 6,
 							}}
 						>
 							<ICONS.MyPublicationsIcon fill="none" />
-							<Text>Мої Публікації</Text>
+							<Text
+								style={{
+									width: "100%",
+								}}
+							>
+								Мої Публікації
+							</Text>
 						</View>
 					),
 				}}
@@ -75,12 +89,19 @@ export default function TabLayout() {
 								borderTopColor: focused
 									? COLORS.plum
 									: "transparent",
-								width: "300%",
+								width: "auto",
 								marginTop: 4,
+								paddingHorizontal: 6,
 							}}
 						>
 							<ICONS.FriendsIcon fill="none" />
-							<Text>Друзі</Text>
+							<Text
+								style={{
+									width: "100%",
+								}}
+							>
+								Друзі
+							</Text>
 						</View>
 					),
 				}}
@@ -98,12 +119,19 @@ export default function TabLayout() {
 								borderTopColor: focused
 									? COLORS.plum
 									: "transparent",
-								width: "300%",
+								width: "auto",
 								marginTop: 4,
+								paddingHorizontal: 6,
 							}}
 						>
 							<ICONS.ChatsIcon fill="none" />
-							<Text>Чати</Text>
+							<Text
+								style={{
+									width: "100%",
+								}}
+							>
+								Чати
+							</Text>
 						</View>
 					),
 				}}

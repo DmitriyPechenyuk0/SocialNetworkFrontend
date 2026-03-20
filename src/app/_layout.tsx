@@ -8,7 +8,9 @@ export default function Layout() {
 
 	return (
 		<SafeAreaProvider>
-			<View style={{ backgroundColor: "#ff00ff", flex: 1 }}>
+			<View
+				style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
+			>
 				<Slot></Slot>
 			</View>
 		</SafeAreaProvider>
