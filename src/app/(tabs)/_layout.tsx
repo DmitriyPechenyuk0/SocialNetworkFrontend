@@ -118,6 +118,7 @@ export default function TabLayout() {
 				name="chats"
 				options={{
 					title: "",
+					header: () => <Header hideSettings />,
 					tabBarIcon: ({ focused }) => (
 						<View
 							style={{

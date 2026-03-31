@@ -21,7 +21,6 @@ export default function Chats() {
   	  	  	  	  	title="Повідомлення"
   	  	  	  	  	isactive={activeTab === "messages"}
   	  	  	  	  	onPress={() => setActiveTab("messages")}
-  	  	  	  	  	badge={2}
   	  	  	  	  	icon={<ICONS.ChatsIcon color={"#000"} />}
   	  	  	  	/>
 

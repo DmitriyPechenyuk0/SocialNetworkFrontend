@@ -14,8 +14,9 @@ export const styles = StyleSheet.create({
         marginBottom: 4,
     },
     text: {
-        fontSize: 12,
-        color: '#000',
+        fontSize: 14,
+        fontWeight: '500',
+        color: '#070A1C',
     },
     unperline: {
         position: 'absolute',
