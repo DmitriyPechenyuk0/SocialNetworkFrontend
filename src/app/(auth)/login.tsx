@@ -66,13 +66,13 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     tabText: {
-        fontSize: 32,
+        fontSize: 28,
         fontWeight: '900',
         color: COLORS.blue50,
         textAlign: "center",
     },
     tabTextActive: {
-        fontSize: 32,
+        fontSize: 28,
         fontWeight: '900',
         color: COLORS.blue,
     },
