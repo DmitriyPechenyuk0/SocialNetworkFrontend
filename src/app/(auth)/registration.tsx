@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { ICONS } from "@shared/ui/icons";
 import { Button } from "@shared/ui/button";
 import { useRouter } from "expo-router";
@@ -14,31 +14,33 @@ export default function RegistrationScreen() {
                 <ICONS.Logo />
             </View>
 
-            <View style={styles.card}>
-                <View style={styles.tabsRow}>
-                    <View style={styles.tabItem}>
-                        <Text style={styles.tabTextActive}>Реєстрація</Text>
-                        <View style={styles.tabIndicator} />
+            <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", alignItems: "center" }} style={{ width: '100%' }}>
+                <View style={styles.card}>
+                    <View style={styles.tabsRow}>
+                        <View style={styles.tabItem}>
+                            <Text style={styles.tabTextActive}>Реєстрація</Text>
+                            <View style={styles.tabIndicator} />
+                        </View>
+
+                        <TouchableOpacity 
+                            onPress={() => router.replace("../(auth)/login")} 
+                            style={styles.tabItem}
+                        >
+                            <Text style={styles.tabText}>Авторизація</Text>
+                        </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity 
-                        onPress={() => router.replace("../(auth)/login")} 
-                        style={styles.tabItem}
-                    >
-                        <Text style={styles.tabText}>Авторизація</Text>
-                    </TouchableOpacity>
+                    <Text style={styles.title}>Приєднуйся до World IT</Text>
+
+                    <Button 
+                        variant="fill" 
+                        text="Створити акаунт" 
+                        textStyle={{ fontSize: 18, fontWeight: "600" }}
+                        style={styles.submitButton}
+                        onPress={() => console.log("Створюємо...")}
+                    />
                 </View>
-
-                <Text style={styles.title}>Приєднуйся до World IT</Text>
-
-                <Button 
-                    variant="fill" 
-                    text="Створити акаунт" 
-                    textStyle={{ fontSize: 18, fontWeight: "600" }}
-                    style={styles.submitButton}
-                    onPress={() => console.log("Створюємо...")}
-                />
-            </View>
+            </ScrollView>
         </SafeAreaView>
     );
 }
@@ -114,7 +116,9 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: "center",
         alignItems: "center",
-        height: 56,
+        height: 100,
         paddingTop: 20,
+        zIndex: 10,
+        elevation: 10,
     },
 });
