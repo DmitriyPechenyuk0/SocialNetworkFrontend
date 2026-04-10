@@ -10,27 +10,27 @@ export default function RegistrationScreen() {
         <View style={styles.container}>
             <View style={styles.card}>
                 <View style={styles.tabsRow}>
-                    <TouchableOpacity onPress={() => router.replace("../(auth)/login")} style={styles.tabItem}>
-                        <Text style={styles.tabText}>Авторизація</Text>
-                    </TouchableOpacity>
                     <View style={styles.tabItem}>
                         <Text style={styles.tabTextActive}>Реєстрація</Text>
                         <View style={styles.tabIndicator} />
                     </View>
+
+                    <TouchableOpacity 
+                        onPress={() => router.replace("../(auth)/login")} 
+                        style={styles.tabItem}
+                    >
+                        <Text style={styles.tabText}>Авторизація</Text>
+                    </TouchableOpacity>
                 </View>
 
                 <Text style={styles.title}>Приєднуйся до World IT</Text>
 
-                <Button
-                    variant="fill"
+                <Button 
+                    variant="fill" 
+                    text="Створити акаунт" 
                     style={styles.submitButton}
-                    onPress={() => {
-                        console.log("Реєстрація...");
-                    }}
-                >
-                    Створити акаунт
-                </Button>
-                
+                    onPress={() => console.log("Створюємо...")}
+                />
             </View>
         </View>
     );
@@ -49,6 +49,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.white,
         borderRadius: 10,
         padding: 25,
+        width: '100%',
+        minHeight: 520,
     },
     tabsRow: {
         justifyContent: "center",

@@ -10,26 +10,24 @@ export default function LoginScreen() {
         <View style={styles.container}>
             <View style={styles.card}>
                 <View style={styles.tabsRow}>
+                    <TouchableOpacity onPress={() => router.replace("../(auth)/registration")} style={styles.tabItem}>
+                        <Text style={styles.tabText}>Реєстрація</Text>
+                    </TouchableOpacity>
+
                     <View style={styles.tabItem}>
                         <Text style={styles.tabTextActive}>Авторизація</Text>
                         <View style={styles.tabIndicator} />
                     </View>
-                    <TouchableOpacity onPress={() => router.replace("../(auth)/registration")} style={styles.tabItem}>
-                        <Text style={styles.tabText}>Реєстрація</Text>
-                    </TouchableOpacity>
                 </View>
 
                 <Text style={styles.title}>З поверненням у World IT</Text>
 
-                <Button
+                <Button 
                     variant="fill"
+                    text="Увійти" 
                     style={styles.submitButton}
-                    onPress={() => {
-                        console.log("Увійти...");
-                    }}
-                >
-                    Увійти
-                </Button>
+                    onPress={() => console.log("Увійти...")}
+                />
             </View>
         </View>
     );
@@ -49,6 +47,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.white,
         borderRadius: 10,
         padding: 25,
+        width: '100%',
+        minHeight: 520,
     },
     tabsRow: {
         justifyContent: "center",
