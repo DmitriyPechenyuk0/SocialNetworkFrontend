@@ -20,11 +20,12 @@ export default function LoginScreen() {
                     </View>
                 </View>
 
-                <Text style={styles.title}>З поверненням у World IT</Text>
+                <Text style={styles.title}>Раді тебе знову бачити</Text>
 
                 <Button 
                     variant="fill"
                     text="Увійти" 
+                    textStyle={{ fontSize: 20, fontWeight: "600" }}
                     style={styles.submitButton}
                     onPress={() => console.log("Увійти...")}
                 />
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     card: {
         backgroundColor: COLORS.white,
         borderRadius: 20,
-        padding: 35,
+        padding: 45,
         width: '100%',
         minHeight: 520,
     },
