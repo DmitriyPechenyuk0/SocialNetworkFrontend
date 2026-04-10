@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
     card: {
         backgroundColor: COLORS.white,
-        borderRadius: 10,
+        borderRadius: 20,
         padding: 25,
         width: '100%',
         minHeight: 520,
@@ -99,5 +99,7 @@ const styles = StyleSheet.create({
         borderRadius: 26,
         justifyContent: "center",
         alignItems: "center",
+        fontSize: 16,
+        fontWeight: '600',
     },
 });
