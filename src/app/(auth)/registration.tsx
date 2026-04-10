@@ -113,12 +113,13 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: COLORS.white,
         position: "absolute",
-        width: '100%',
+        width: 375,
         justifyContent: "center",
         alignItems: "center",
-        height: 100,
+        height: 60,
         paddingTop: 20,
         zIndex: 10,
         elevation: 10,
+        top: 0,
     },
 });

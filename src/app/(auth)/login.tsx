@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, } from "react-native";
 import { ICONS } from "@shared/ui/icons";
 import { Button } from "@shared/ui/button";
 import { useRouter } from "expo-router";
@@ -13,29 +13,31 @@ export default function LoginScreen() {
             <View style={styles.header}>
                 <ICONS.Logo />
             </View>
+            
+            <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", alignItems: "center" }} style={{ width: '100%' }}>
+                <View style={styles.card}>
+                    <View style={styles.tabsRow}>
+                        <TouchableOpacity onPress={() => router.replace("../(auth)/registration")} style={styles.tabItem}>
+                            <Text style={styles.tabText}>Реєстрація</Text>
+                        </TouchableOpacity>
 
-            <View style={styles.card}>
-                <View style={styles.tabsRow}>
-                    <TouchableOpacity onPress={() => router.replace("../(auth)/registration")} style={styles.tabItem}>
-                        <Text style={styles.tabText}>Реєстрація</Text>
-                    </TouchableOpacity>
-
-                    <View style={styles.tabItem}>
-                        <Text style={styles.tabTextActive}>Авторизація</Text>
-                        <View style={styles.tabIndicator} />
+                        <View style={styles.tabItem}>
+                            <Text style={styles.tabTextActive}>Авторизація</Text>
+                            <View style={styles.tabIndicator} />
+                        </View>
                     </View>
+
+                    <Text style={styles.title}>Раді тебе знову бачити</Text>
+
+                    <Button 
+                        variant="fill"
+                        text="Увійти" 
+                        textStyle={{ fontSize: 18, fontWeight: "600" }}
+                        style={styles.submitButton}
+                        onPress={() => console.log("Увійти...")}
+                    />
                 </View>
-
-                <Text style={styles.title}>Раді тебе знову бачити</Text>
-
-                <Button 
-                    variant="fill"
-                    text="Увійти" 
-                    textStyle={{ fontSize: 18, fontWeight: "600" }}
-                    style={styles.submitButton}
-                    onPress={() => console.log("Увійти...")}
-                />
-            </View>
+            </ScrollView>
         </SafeAreaView>
     );
 }
@@ -109,10 +111,13 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: COLORS.white,
         position: "absolute",
-        width: '100%',
+        width: 375,
         justifyContent: "center",
         alignItems: "center",
-        height: 56,
+        height: 60,
         paddingTop: 20,
+        zIndex: 10,
+        elevation: 10,
+        top: 0,
     },
 });
