@@ -25,7 +25,7 @@ export default function LoginScreen() {
                 <Button 
                     variant="fill"
                     text="Увійти" 
-                    textStyle={{ fontSize: 20, fontWeight: "600" }}
+                    textStyle={{ fontSize: 18, fontWeight: "600" }}
                     style={styles.submitButton}
                     onPress={() => console.log("Увійти...")}
                 />
@@ -66,13 +66,13 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     tabText: {
-        fontSize: 28,
+        fontSize: 32,
         fontWeight: '900',
         color: COLORS.blue50,
         textAlign: "center",
     },
     tabTextActive: {
-        fontSize: 28,
+        fontSize: 32,
         fontWeight: '900',
         color: COLORS.blue,
     },

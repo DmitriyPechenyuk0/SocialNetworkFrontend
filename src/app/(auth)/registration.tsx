@@ -28,7 +28,7 @@ export default function RegistrationScreen() {
                 <Button 
                     variant="fill" 
                     text="Створити акаунт" 
-                    textStyle={{ fontSize: 20, fontWeight: "600" }}
+                    textStyle={{ fontSize: 18, fontWeight: "600" }}
                     style={styles.submitButton}
                     onPress={() => console.log("Створюємо...")}
                 />
@@ -68,13 +68,13 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     tabText: {
-        fontSize: 28,
+        fontSize: 32,
         fontWeight: '900',
         color: COLORS.blue50,
         textAlign: "center",
     },
     tabTextActive: {
-        fontSize: 28,
+        fontSize: 32,
         fontWeight: '900',
         color: COLORS.blue,
     },
