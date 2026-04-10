@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
         padding: 45,
         width: '100%',
         minHeight: 520,
+        alignItems: "center",
     },
     tabsRow: {
         justifyContent: "center",
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     submitButton: {
         marginTop: "auto",
         width: 311,
-        height: 52,
+        height: 62,
         backgroundColor: COLORS.plum,
         borderRadius: 26,
         justifyContent: "center",
