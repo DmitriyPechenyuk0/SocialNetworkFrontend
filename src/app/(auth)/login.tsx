@@ -65,14 +65,14 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     tabText: {
-        fontSize: 24,
-        fontWeight: '800',
+        fontSize: 28,
+        fontWeight: '900',
         color: COLORS.blue50,
         textAlign: "center",
     },
     tabTextActive: {
-        fontSize: 24,
-        fontWeight: '800',
+        fontSize: 28,
+        fontWeight: '900',
         color: COLORS.blue,
     },
     tabIndicator: {
