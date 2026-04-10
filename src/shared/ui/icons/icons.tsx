@@ -1,11 +1,17 @@
+import { Add } from "./_icons/add";
 import { ChatsIcon } from "./_icons/chats";
+import { Close } from "./_icons/close";
+import { Eye } from "./_icons/eye";
+import { EyeOff } from "./_icons/eyeoff";
 import { FriendsIcon } from "./_icons/friends";
 import { HomeIcon } from "./_icons/homeIcon";
 import { Logo } from "./_icons/logo";
 import { Logout } from "./_icons/logout";
 import { MyPublicationsIcon } from "./_icons/MyPublications";
 import { Plus } from "./_icons/plus";
+import { Search } from "./_icons/search";
 import { Settings } from "./_icons/settings";
+
 
 export const ICONS = {
 	HomeIcon,
@@ -16,4 +22,9 @@ export const ICONS = {
 	Logout,
 	Plus,
 	Settings,
+	Search,
+	Eye,
+	EyeOff,
+	Add,
+	Close
 };
