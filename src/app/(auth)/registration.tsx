@@ -68,13 +68,13 @@ const styles = StyleSheet.create({
     },
     tabText: {
         fontSize: 24,
-        fontWeight: '700',
+        fontWeight: '800',
         color: COLORS.blue50,
         textAlign: "center",
     },
     tabTextActive: {
         fontSize: 24,
-        fontWeight: '700',
+        fontWeight: '800',
         color: COLORS.blue,
     },
     tabIndicator: {
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         borderRadius: 2,
     },
     title: {
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: '700',
         color: COLORS.blue,
         textAlign: "center",
