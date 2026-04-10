@@ -13,7 +13,7 @@ export default function LoginScreen() {
             <View style={styles.header}>
                 <ICONS.Logo />
             </View>
-            
+
             <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", alignItems: "center" }} style={{ width: '100%' }}>
                 <View style={styles.card}>
                     <View style={styles.tabsRow}>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: COLORS.white,
         position: "absolute",
-        width: 375,
+        width: 400,
         justifyContent: "center",
         alignItems: "center",
         height: 60,
