@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     },
     submitButton: {
         marginTop: "auto",
-        width: "100%",
+        width: 311,
         height: 52,
         backgroundColor: COLORS.plum,
         borderRadius: 26,
