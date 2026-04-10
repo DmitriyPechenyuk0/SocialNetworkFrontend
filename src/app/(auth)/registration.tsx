@@ -1,13 +1,19 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { ICONS } from "@shared/ui/icons";
 import { Button } from "@shared/ui/button";
 import { useRouter } from "expo-router";
 import { COLORS } from "@shared/constants";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function RegistrationScreen() {
     const router = useRouter();
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView edges={["top"]} style={styles.container}>
+            <View style={styles.header}>
+                <ICONS.Logo />
+            </View>
+
             <View style={styles.card}>
                 <View style={styles.tabsRow}>
                     <View style={styles.tabItem}>
@@ -33,7 +39,7 @@ export default function RegistrationScreen() {
                     onPress={() => console.log("Створюємо...")}
                 />
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -101,5 +107,14 @@ const styles = StyleSheet.create({
         borderRadius: 26,
         justifyContent: "center",
         alignItems: "center",
+    },
+    header: {
+        backgroundColor: COLORS.white,
+        position: "absolute",
+        width: '100%',
+        justifyContent: "center",
+        alignItems: "center",
+        height: 56,
+        paddingTop: 20,
     },
 });
