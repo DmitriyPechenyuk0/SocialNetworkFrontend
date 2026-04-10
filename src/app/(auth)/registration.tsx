@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         height: 100,
-        paddingTop: 20,
+        paddingTop: 40,
         zIndex: 10,
         elevation: 10,
         top: 0,
