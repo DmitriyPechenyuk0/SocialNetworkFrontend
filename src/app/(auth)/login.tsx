@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, } from "react-native";
+import { Button } from "@shared/ui/button";
 import { useRouter } from "expo-router";
 import { COLORS } from "@shared/constants";
 
@@ -19,7 +20,16 @@ export default function LoginScreen() {
                 </View>
 
                 <Text style={styles.title}>З поверненням у World IT</Text>
-                
+
+                <Button
+                    variant="fill"
+                    style={styles.submitButton}
+                    onPress={() => {
+                        console.log("Увійти...");
+                    }}
+                >
+                    Увійти
+                </Button>
             </View>
         </View>
     );
@@ -32,6 +42,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.plum50,
         justifyContent: 'center',
         paddingHorizontal: 20,
+        width: '100%',
+        height: '100%',
     },
     card: {
         backgroundColor: COLORS.white,
@@ -39,21 +51,27 @@ const styles = StyleSheet.create({
         padding: 25,
     },
     tabsRow: {
+        justifyContent: "center",
         flexDirection: 'row',
         marginBottom: 30,
+        gap: 30,
+        alignItems: "center",
+        width: '100%',
     },
     tabItem: {
-        marginRight: 30,
+        alignItems: "center",
+        // marginRight: 30,
         paddingBottom: 8,
         position: 'relative',
     },
     tabText: {
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: '700',
         color: COLORS.blue50,
+        textAlign: "center",
     },
     tabTextActive: {
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: '700',
         color: COLORS.blue,
     },
@@ -66,8 +84,18 @@ const styles = StyleSheet.create({
         borderRadius: 2,
     },
     title: {
-        fontSize: 24,
+        fontSize: 18,
         fontWeight: '700',
         color: COLORS.blue,
+        textAlign: "center",
+    },
+    submitButton: {
+        marginTop: "auto",
+        width: "100%",
+        height: 52,
+        backgroundColor: COLORS.plum,
+        borderRadius: 26,
+        justifyContent: "center",
+        alignItems: "center",
     },
 });

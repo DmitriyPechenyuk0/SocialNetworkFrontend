@@ -6,8 +6,8 @@ export default function AuthLayout() {
             <Header hideSettings={true} hidePlus={true} />
 
             <Stack screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="login" />
                 <Stack.Screen name="registration" />
+                <Stack.Screen name="login" />
             </Stack>
         </>
     );
