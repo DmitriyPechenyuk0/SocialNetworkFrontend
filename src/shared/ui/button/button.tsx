@@ -26,7 +26,15 @@ export function Button(props: ButtonProps) {
 			{...restProps}
 		>
 			{iconLeft}
-			{text && <Text style={[styles.text, props.textStyle]}>{text}</Text>}
+			<Text 
+                    style={[
+                        styles.text, 
+                        variant === "fill" ? styles.textFill : styles.textOutline,
+                        textStyle
+                    ]}
+                >
+                    {text}
+            </Text>
 			{iconRight}
 		</TouchableOpacity>
 	);

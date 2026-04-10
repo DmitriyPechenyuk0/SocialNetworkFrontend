@@ -100,7 +100,5 @@ const styles = StyleSheet.create({
         borderRadius: 26,
         justifyContent: "center",
         alignItems: "center",
-        fontSize: 18,
-        fontWeight: '600',
     },
 });
