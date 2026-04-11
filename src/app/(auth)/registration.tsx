@@ -113,7 +113,8 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: COLORS.white,
         position: "absolute",
-        width: 400,
+        left: -20,
+        right: -20,
         justifyContent: "center",
         alignItems: "center",
         height: 100,
