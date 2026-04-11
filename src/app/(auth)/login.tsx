@@ -1,11 +1,11 @@
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { ICONS } from "@shared/ui/icons";
 import { Button } from "@shared/ui/button";
 import { useRouter } from "expo-router";
 import { COLORS } from "@shared/constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function LoginScreen() {
+export default function RegistrationScreen() {
     const router = useRouter();
 
     return (
@@ -17,31 +17,33 @@ export default function LoginScreen() {
             <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", alignItems: "center" }} style={{ width: '100%' }}>
                 <View style={styles.card}>
                     <View style={styles.tabsRow}>
-                        <TouchableOpacity onPress={() => router.replace("../(auth)/registration")} style={styles.tabItem}>
-                            <Text style={styles.tabText}>Реєстрація</Text>
-                        </TouchableOpacity>
-
                         <View style={styles.tabItem}>
-                            <Text style={styles.tabTextActive}>Авторизація</Text>
+                            <Text style={styles.tabTextActive}>Реєстрація</Text>
                             <View style={styles.tabIndicator} />
                         </View>
+
+                        <TouchableOpacity 
+                            onPress={() => router.replace("../(auth)/login")} 
+                            style={styles.tabItem}
+                        >
+                            <Text style={styles.tabText}>Авторизація</Text>
+                        </TouchableOpacity>
                     </View>
 
-                    <Text style={styles.title}>Раді тебе знову бачити</Text>
+                    <Text style={styles.title}>Приєднуйся до World IT</Text>
 
                     <Button 
-                        variant="fill"
-                        text="Увійти" 
+                        variant="fill" 
+                        text="Створити акаунт" 
                         textStyle={{ fontSize: 18, fontWeight: "600" }}
                         style={styles.submitButton}
-                        onPress={() => console.log("Увійти...")}
+                        onPress={() => console.log("Створюємо...")}
                     />
                 </View>
             </ScrollView>
         </SafeAreaView>
     );
 }
-
 
 const styles = StyleSheet.create({ 
     container: {
@@ -111,7 +113,8 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: COLORS.white,
         position: "absolute",
-        width: 400,
+        left: -20,
+        right: -20,
         justifyContent: "center",
         alignItems: "center",
         height: 100,
