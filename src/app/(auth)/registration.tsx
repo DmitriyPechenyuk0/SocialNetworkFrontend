@@ -4,6 +4,8 @@ import { Button } from "@shared/ui/button";
 import { useRouter } from "expo-router";
 import { COLORS } from "@shared/constants";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Registration } from "@modules/registration-authorization/ui/registration-form/registration";
+
 
 export default function RegistrationScreen() {
     const router = useRouter();
@@ -32,13 +34,8 @@ export default function RegistrationScreen() {
 
                     <Text style={styles.title}>Приєднуйся до World IT</Text>
 
-                    <Button 
-                        variant="fill" 
-                        text="Створити акаунт" 
-                        textStyle={{ fontSize: 18, fontWeight: "600" }}
-                        style={styles.submitButton}
-                        onPress={() => console.log("Створюємо...")}
-                    />
+                    <Registration />
+                    
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -101,15 +98,7 @@ const styles = StyleSheet.create({
         color: COLORS.blue,
         textAlign: "center",
     },
-    submitButton: {
-        marginTop: "auto",
-        width: 311,
-        height: 52,
-        backgroundColor: COLORS.plum,
-        borderRadius: 26,
-        justifyContent: "center",
-        alignItems: "center",
-    },
+    
     header: {
         backgroundColor: COLORS.white,
         position: "absolute",

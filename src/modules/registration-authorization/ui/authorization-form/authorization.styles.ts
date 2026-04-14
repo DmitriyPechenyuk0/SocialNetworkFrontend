@@ -1,11 +1,21 @@
+import { COLORS } from "@shared/constants/colors";
 import { StyleSheet } from "react-native";
 
-export const registrationStyles = StyleSheet.create({
+export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        width: '100%',
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: 10,
+        gap: 12,
+    },
+    submitButton: {
+        marginTop: "auto",
+        width: 311,
+        height: 52,
+        backgroundColor: COLORS.plum,
+        borderRadius: 26,
+        justifyContent: "center",
+        alignItems: "center",
     },
 })
