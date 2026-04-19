@@ -11,6 +11,7 @@ import {
 import { COLORS } from "@shared/constants";
 import { pickImage } from "@shared/utils/pickImage";
 import { ICONS } from "@shared/ui/icons";
+import { FONT_SIZE } from "@shared/constants";
 
 export default function Settings() {
     const [activeTab, setActiveTab] = useState<'info' | 'albums'>('info');
@@ -55,17 +56,20 @@ export default function Settings() {
                 </TouchableOpacity>
             </View>
 
-            <ScrollView contentContainerStyle={[{ padding: 16 }, { backgroundColor: COLORS.plum50}]}>
+            <ScrollView contentContainerStyle={[{ backgroundColor: COLORS.plum50}]}>
                 {activeTab === 'info' && (
                     <>
                         {!isEditModalVisible ? (
                             <View style={styles.card}>
-                                <TouchableOpacity 
-                                    style={styles.editBtn} 
-                                    onPress={() => setIsEditModalVisible(true)}
-                                >
-                                    <Text><ICONS.Pencil /></Text>
-                                </TouchableOpacity>
+                                <View style={[{width: '100%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', height: 70}]}>
+                                    <Text style={[styles.sectionTitle, {left: 10}]}>Картка профілю</Text>
+                                    <TouchableOpacity 
+                                        style={styles.editBtn} 
+                                        onPress={() => setIsEditModalVisible(true)}
+                                    >
+                                        <Text><ICONS.Pencil /></Text>
+                                    </TouchableOpacity>
+                                </View>
 
                                 <View>
                                     {avatar ? (
@@ -88,6 +92,7 @@ export default function Settings() {
                                         style={styles.saveBtn} 
                                         onPress={() => setIsEditModalVisible(false)}
                                     >
+                                        <ICONS.Pencil />
                                         <Text style={styles.saveBtnText}>Зберегти</Text>
                                     </TouchableOpacity>
                                 </View>
@@ -108,7 +113,7 @@ export default function Settings() {
                                         <Text style={styles.photoActionText}><ICONS.Plus /> Додайте фото</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity style={styles.photoActionBtn} onPress={handlePickImage}>
-                                        <Text style={styles.photoActionText}>Оберіть фото</Text>
+                                        <Text style={styles.photoActionText}><ICONS.Photo /> Оберіть фото</Text>
                                     </TouchableOpacity>
                                 </View>
 
@@ -132,7 +137,7 @@ export default function Settings() {
                                 <Text><ICONS.Pencil /></Text>
                             </TouchableOpacity>
 
-                            <Text style={styles.sectionTitle}>Особиста інформація</Text>
+                            <Text style={[styles.sectionTitle, {marginTop: 20}]}>Особиста інформація</Text>
 
                             <Text style={styles.label}>Ім’я</Text>
                             <TextInput style={styles.input} value="Li" editable={false} />
@@ -145,12 +150,34 @@ export default function Settings() {
 
                             <Text style={styles.label}>Пароль</Text>
                             <TextInput style={styles.input} value="***********" editable={false} />
-                            <View style={{ marginTop: 30 }}>
-                                <TouchableOpacity style={[styles.editBtn, { marginTop: -20 }]}>
-                                    <Text><ICONS.Pencil /></Text>
-                                </TouchableOpacity>
+                            <View style={{ marginTop: 25 }}>
+                                <View style = {{alignItems: "center", justifyContent: "space-between"}}>
+                                    <TouchableOpacity style={[styles.editBtn, { marginTop: -20 }]}>
+                                        <Text><ICONS.Pencil /></Text>
+                                    </TouchableOpacity>
+                                </View>
                                 <Text style={styles.sectionTitle}>Пароль</Text>
-                                <TextInput style={styles.input} value="***********" editable={false} />
+                            </View>
+                            <Text style={styles.label}>Пароль</Text>
+                            <TextInput style={[styles.input, { marginTop: 10 }]} value="***********" editable={false} />
+                        </View>
+
+                        <View style={styles.card}>
+                            <Text style={[styles.sectionTitle, { marginTop: 20 }]}>Варіанти підпису</Text>
+                            <View style={styles.signatureCheckboxRow}>
+                                <ICONS.CheckboxChecked />
+                                <Text style={styles.signatureCheckboxLabel}>Псевдонім автора</Text>
+                            </View>
+
+                            <Text style={styles.signatureNameText}>Lina Li</Text>
+
+                            <View style={styles.signatureCheckboxRow}>
+                                <ICONS.CheckboxChecked />
+                                <Text style={styles.signatureCheckboxLabel}>Мій електронний підпис</Text>
+                            </View>
+
+                            <View style={styles.signatureImageContainer}>
+                                <Image source={require("../../../assets/signature.png")} style={styles.signatureImage} />
                             </View>
                         </View>
                     </>
@@ -163,22 +190,23 @@ export default function Settings() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.fog,
+        backgroundColor: COLORS.plum50,
     },
     tabsContainer: {
         flexDirection: 'row',
         paddingHorizontal: 20,
         backgroundColor: COLORS.plum50,
-        paddingTop: 10,
+        paddingTop: 18,
+        marginBottom: 18,
     },
     tab: {
         marginRight: 20,
-        paddingBottom: 10,
+        paddingBottom: 6,
         alignItems: 'center',
         position: 'relative',
     },
     tabText: {
-        fontSize: 16,
+        fontSize: FONT_SIZE.smallTitle,
         fontWeight: '600',
         color: COLORS.blue50,
     },
@@ -189,16 +217,19 @@ const styles = StyleSheet.create({
     indicator: {
         position: 'absolute',
         bottom: 0,
-        height: 3,
+        height: 2,
         width: '100%',
         backgroundColor: COLORS.plum,
-        borderRadius: 2,
     },
     card: {
         backgroundColor: COLORS.white,
         borderRadius: 16,
+        borderWidth: 1,
+        borderColor: COLORS.blue20,
         padding: 16,
+        paddingTop: 0,
         marginBottom: 16,
+        width: '100%',
         position: "relative",
     },
     editCardBorder: {
@@ -207,11 +238,11 @@ const styles = StyleSheet.create({
     },
     editBtn: {
         position: "absolute",
-        top: 10,
-        right: 10,
-        width: 32,
-        height: 32,
-        borderRadius: 16,
+        top: 15,
+        right: 16,
+        width: 40,
+        height: 40,
+        borderRadius: 20,
         borderWidth: 1,
         borderColor: COLORS.plum,
         justifyContent: "center",
@@ -232,38 +263,43 @@ const styles = StyleSheet.create({
     },
     name: {
         textAlign: "center",
-        fontSize: 18,
+        fontSize: FONT_SIZE.title,
         fontWeight: "700",
     },
     username: {
         textAlign: "center",
-        color: COLORS.blue50,
-        marginBottom: 10,
+        color: COLORS.blue,
+        marginTop: 8,
+        marginBottom: 2,
     },
     sectionTitle: {
+        fontSize: FONT_SIZE.smallTitle,
         fontWeight: "700",
         marginBottom: 10,
     },
     label: {
-        fontSize: 12,
+        fontSize: FONT_SIZE.defaultP,
         color: COLORS.blue50,
         marginBottom: 4,
-        marginTop: 10,
+        marginTop: 12,
     },
     input: {
         borderWidth: 1,
-        borderColor: COLORS.blue50,
+        borderColor: COLORS.blue20,
         borderRadius: 10,
-        padding: 10,
+        padding: 12,
+        fontSize: FONT_SIZE.defaultP,
+        color: COLORS.blue50,
     },
     modalHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: 20,
+        marginTop: 10,
     },
     modalTitle: {
-        fontSize: 18,
+        fontSize: FONT_SIZE.smallTitle,
         fontWeight: '700',
         color: COLORS.blue,
     },
@@ -276,14 +312,15 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         borderWidth: 1,
         borderColor: COLORS.plum,
+        gap: 6,
     },
     saveBtnText: {
-        fontSize: 14,
+        fontSize: FONT_SIZE.defaultP,
         fontWeight: '600',
         color: COLORS.plum,
     },
     modalSubtitle: {
-        fontSize: 16,
+        fontSize: FONT_SIZE.smallTitle,
         textAlign: 'center',
         color: COLORS.blue,
         marginBottom: 24,
@@ -297,10 +334,6 @@ const styles = StyleSheet.create({
         height: 120,
         borderRadius: 60,
     },
-    modalAvatarPlus: {
-        fontSize: 32,
-        color: COLORS.blue50,
-    },
     photoActions: {
         flexDirection: 'row',
         justifyContent: 'center',
@@ -312,12 +345,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     photoActionText: {
-        fontSize: 16,
+        fontSize: FONT_SIZE.smallTitle,
         fontWeight: '600',
         color: COLORS.plum,
+        textAlign: 'center',
     },
     modalName: {
-        fontSize: 24,
+        fontSize: FONT_SIZE.title,
         fontWeight: '800',
         textAlign: 'center',
         color: COLORS.blue,
@@ -327,7 +361,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     modalInputLabel: {
-        fontSize: 16,
+        fontSize: FONT_SIZE.smallTitle,
         color: COLORS.blue50,
         marginBottom: 8,
     },
@@ -336,8 +370,37 @@ const styles = StyleSheet.create({
         borderColor: COLORS.blue50,
         borderRadius: 12,
         padding: 14,
-        fontSize: 16,
+        fontSize: FONT_SIZE.smallTitle,
         color: COLORS.blue,
         backgroundColor: COLORS.white,
+    },
+    signatureCheckboxRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 16,
+        marginBottom: 8,
+    },
+    signatureCheckboxLabel: {
+        fontSize: FONT_SIZE.smallTitle,
+        color: "#aa9ea9",
+        marginLeft: 10,
+    },
+    signatureNameText: {
+        fontSize: FONT_SIZE.smallTitle,
+        fontWeight: '500',
+        color: COLORS.blue,
+        marginTop: 4,
+        marginBottom: 16,
+        marginLeft: 4,
+    },
+    signatureImageContainer: {
+        alignItems: 'center',
+        marginTop: 8,
+        marginBottom: 8,
+    },
+    signatureImage: {
+        width: '40%',
+        height: 80,
+        resizeMode: 'contain',
     },
 });

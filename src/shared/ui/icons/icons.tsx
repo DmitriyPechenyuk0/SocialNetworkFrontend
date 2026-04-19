@@ -7,6 +7,8 @@ import { MyPublicationsIcon } from "./_icons/MyPublications";
 import { Pencil } from "./_icons/pencil";
 import { Plus } from "./_icons/plus";
 import { Settings } from "./_icons/settings";
+import { CheckboxChecked } from "./_icons/checkbox";
+import { Photo } from "./_icons/photo";
 
 export const ICONS = {
 	HomeIcon,
@@ -17,5 +19,7 @@ export const ICONS = {
 	Logout,
 	Plus,
 	Settings,
-	Pencil
+	Pencil,
+	CheckboxChecked,
+	Photo
 };
