@@ -139,19 +139,29 @@ export function Registration() {
                             Ми надіслали 6-значний код на вашу пошту (you@example.com). Введіть його нижче, щоб підтвердити акаунт
                         </Text>
                         
+                        <Text style={styles.inputLabel}>Код підтвердження</Text>
+
                         <View style={styles.otpContainer}>
-                            {code.map((value, index) => (
-                                <View key={index} style={styles.otpInputBox}>
-                                    <TextInput
-                                        ref={(ref) => { inputs.current[index] = ref; }}
-                                        style={styles.textInput}
-                                        keyboardType="number-pad"
-                                        maxLength={1}
-                                        value={value}
-                                        onChangeText={(text) => handleChange(text, index)}
-                                        onKeyPress={(e) => handleKeyPress(e, index)}
-                                    />
-                                    {value === '' && <View style={styles.underscore} />}
+                            {[0, 2, 4].map((pairIndex) => (
+                                <View key={pairIndex} style={styles.otpPair}>
+                                    {[0, 1].map((offset) => {
+                                        const index = pairIndex + offset;
+                                        const value = code[index];
+                                        return (
+                                            <View key={index} style={styles.otpInputBox}>
+                                                <TextInput
+                                                    ref={(el) => { inputs.current[index] = el; }}
+                                                    style={styles.textInput}
+                                                    keyboardType="number-pad"
+                                                    maxLength={1}
+                                                    value={value}
+                                                    onChangeText={(text) => handleChange(text, index)}
+                                                    onKeyPress={(e) => handleKeyPress(e, index)}
+                                                />
+                                                {value === '' && <View style={styles.underscore} />}
+                                            </View>
+                                        );
+                                    })}
                                 </View>
                             ))}
                         </View>

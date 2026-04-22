@@ -31,7 +31,7 @@ export default function RegistrationScreen() {
                         </View>
                     </View>
 
-                    <Text style={styles.title}>Приєднуйся до World IT</Text>
+                    <Text style={styles.title}>Раді тебе знову бачити!</Text>
 
                     <Authorization />
 

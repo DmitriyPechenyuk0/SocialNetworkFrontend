@@ -48,7 +48,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
-        marginVertical: 30,
+        marginTop: 5,
+        marginBottom: 30,
     },
     otpInputBox: {
         width: 40,
@@ -59,6 +60,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    otpPair: {
+        flexDirection: 'row',
+        gap: 8,
+    },
     textInput: {
         width: '100%',
         height: '100%',
@@ -66,6 +71,7 @@ export const styles = StyleSheet.create({
         fontSize: 15,
     },
     modalTitle: {
+        marginTop: 25,
         fontSize: 24,
         fontWeight: '700',
         marginBottom: 25,
@@ -95,6 +101,7 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         color: COLORS.plum,
         fontWeight: '500',
+        marginBottom: 10,
     },
     underscore: {
         position: 'absolute',
@@ -102,6 +109,12 @@ export const styles = StyleSheet.create({
         width: 16,
         height: 1.5,
         backgroundColor: COLORS.blue50,
+    },
+    inputLabel: {
+        alignSelf: 'flex-start',
+        fontSize: 16,
+        fontWeight: '500',
+        marginTop: 30,
     },
 });
 
