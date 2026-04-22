@@ -1,47 +1,47 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "@shared/constants";
+import { FONT_SIZE } from "@shared/constants";
 
 export const styles = StyleSheet.create({
     container: {
         gap: 6,
     },
     label: {
-        fontSize: 14,
-        color: "#1A1A1A",
+        fontSize: FONT_SIZE.smallTitle,
+        color: COLORS.blue,
         fontFamily: "GTWalsheim-Medium",
     },
     labelDisabled: {
-        color: "#9E9E9E",
+        color: COLORS.blue,
+        opacity: 0.5,
     },
     inputWrapper: {
         flexDirection: "row",
         alignItems: "center",
         borderWidth: 1,
-        borderColor: "#E0E0E0",
-        borderRadius: 8,
+        borderColor: COLORS.blue20,
+        borderRadius: 10,
         paddingHorizontal: 12,
         height: 48,
-        backgroundColor: "#FFFFFF",
-    },
-    inputWrapperFocused: {
-        borderColor: "#6C63FF",
+        backgroundColor: COLORS.white,
     },
     inputWrapperError: {
-        borderColor: "#E53935",
+        borderColor: COLORS.red,
     },
     inputWrapperDisabled: {
-        backgroundColor: "#F5F5F5",
-        borderColor: "#E0E0E0",
+        backgroundColor: COLORS.white,
+        borderColor: COLORS.blue20,
     },
     input: {
         flex: 1,
         fontSize: 16,
-        color: "#1A1A1A",
+        color: COLORS.blue,
         fontFamily: "GTWalsheim-Regular",
         padding: 0,
     },
     errorText: {
         fontSize: 12,
-        color: "#E53935",
+        color: COLORS.red,
         fontFamily: "GTWalsheim-Regular",
         marginTop: 2,
     },
@@ -62,16 +62,16 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         borderWidth: 1,
-        borderColor: "#E0E0E0",
+        borderColor: COLORS.blue20,
         borderRadius: 8,
         paddingHorizontal: 12,
         height: 48,
-        backgroundColor: "#FFFFFF",
+        backgroundColor: COLORS.white,
     },
     linkText: {
         flex: 1,
         fontSize: 16,
-        color: "#1A1A1A",
+        color: COLORS.blue,
         fontFamily: "GTWalsheim-Regular",
     },
     linkIconButton: {
@@ -79,7 +79,7 @@ export const styles = StyleSheet.create({
         height: 36,
         borderRadius: 18,
         borderWidth: 1.5,
-        borderColor: "#E0E0E0",
+        borderColor: COLORS.blue20,
         alignItems: "center",
         justifyContent: "center",
     },

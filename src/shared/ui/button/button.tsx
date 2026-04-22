@@ -9,6 +9,7 @@ export function Button(props: ButtonProps) {
 		iconLeft,
 		iconRight,
 		buttonStyle,
+		textStyle,
 		disabled,
 		style,
 		...restProps
@@ -25,7 +26,7 @@ export function Button(props: ButtonProps) {
 			{...restProps}
 		>
 			{iconLeft}
-			{text && <Text style={styles.text}>{text}</Text>}
+			{text && <Text style={[styles.text, textStyle]}>{text}</Text>}
 			{iconRight}
 		</TouchableOpacity>
 	);

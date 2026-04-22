@@ -18,7 +18,6 @@ export function Input({
     onChangeText,
     ...rest
 }: InputProps) {
-    const [isFocused, setIsFocused] = useState(false);
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [linkDraft, setLinkDraft] = useState("");
     const [showLinkInput, setShowLinkInput] = useState(false);
@@ -27,7 +26,6 @@ export function Input({
 
     const wrapperStyle = [
         styles.inputWrapper,
-        isFocused && !disabled && styles.inputWrapperFocused,
         hasError && styles.inputWrapperError,
         disabled && styles.inputWrapperDisabled,
     ];
@@ -148,8 +146,6 @@ export function Input({
                     placeholderTextColor={disabled ? "#E0E0E0" : "#9E9E9E"}
                     secureTextEntry={fieldType === "password" && !isPasswordVisible}
                     editable={!disabled}
-                    onFocus={() => setIsFocused(true)}
-                    onBlur={() => setIsFocused(false)}
                     {...rest}
                 />
 
