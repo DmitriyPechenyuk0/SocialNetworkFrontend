@@ -5,12 +5,27 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: '100%',
+        paddingHorizontal: 10,
         alignItems: "center",
-        justifyContent: "center",
-        gap: 12,
     },
+    input: {
+        flex: 1,
+        justifyContent: "space-between",
+    },
+
+    inputContainer: {
+        width: 311,
+        marginBottom: 20,
+    },
+
+    formWrapper: {
+        width: '100%',
+        alignItems: "center",
+        paddingTop: 20,
+    },
+
     submitButton: {
-        marginTop: "auto",
+        marginTop: 10,
         width: 311,
         height: 52,
         backgroundColor: COLORS.plum,

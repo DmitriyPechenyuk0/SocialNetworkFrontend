@@ -18,17 +18,17 @@ export default function RegistrationScreen() {
             <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", alignItems: "center" }} style={{ width: '100%' }}>
                 <View style={styles.card}>
                     <View style={styles.tabsRow}>
-                        <View style={styles.tabItem}>
-                            <Text style={styles.tabTextActive}>Реєстрація</Text>
-                            <View style={styles.tabIndicator} />
-                        </View>
-
                         <TouchableOpacity 
-                            onPress={() => router.replace("../(auth)/login")} 
+                            onPress={() => router.replace("/registration")}
                             style={styles.tabItem}
                         >
-                            <Text style={styles.tabText}>Авторизація</Text>
+                            <Text style={styles.tabText}>Реєстрація</Text>
                         </TouchableOpacity>
+
+                        <View style={styles.tabItem}>
+                            <Text style={styles.tabTextActive}>Авторизація</Text>
+                            <View style={styles.tabIndicator} />
+                        </View>
                     </View>
 
                     <Text style={styles.title}>Приєднуйся до World IT</Text>
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         padding: 45,
         width: '100%',
-        minHeight: 520,
+        minHeight: 420,
         alignItems: "center",
     },
     tabsRow: {
@@ -71,15 +71,16 @@ const styles = StyleSheet.create({
         // marginRight: 30,
         paddingBottom: 8,
         position: 'relative',
+        elevation: 5
     },
     tabText: {
-        fontSize: 28,
+        fontSize: 24,
         fontWeight: '900',
         color: COLORS.blue50,
         textAlign: "center",
     },
     tabTextActive: {
-        fontSize: 28,
+        fontSize: 24,
         fontWeight: '900',
         color: COLORS.blue,
     },
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
         borderRadius: 2,
     },
     title: {
-        fontSize: 24,
+        fontSize: 23,
         fontWeight: '700',
         color: COLORS.blue,
         textAlign: "center",

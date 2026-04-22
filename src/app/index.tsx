@@ -6,7 +6,7 @@ export default function App() {
 	const isLoggedIn = false;
 
 	if (!isLoggedIn) {
-		return <Redirect href = {"/(auth)/login"} />;
+		return <Redirect href = {"/registration"} />;
 	}
 	
 	return (

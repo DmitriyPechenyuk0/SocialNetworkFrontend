@@ -1,18 +1,17 @@
 import { Stack } from "expo-router";
 import { View } from "react-native";
-import { COLORS } from "@shared/constants/colors";
+import { Provider } from "react-redux";
+import { store } from "../../app/store";
+
 export default function AuthLayout() {
     return (
-        <View style={{ flex: 1 }}>  
-
-            <Stack 
-                screenOptions={{
-                    headerShown: false,
-                }}
-            >
-                <Stack.Screen name="registration" />
-                <Stack.Screen name="login" />
-            </Stack>
-        </View>
+        <Provider store={store}>
+            <View style={{ flex: 1 }}>  
+                <Stack screenOptions={{ headerShown: false }}>
+                    <Stack.Screen name="registration" />
+                    <Stack.Screen name="login" />
+                </Stack>
+            </View>
+        </Provider>
     );
 }
