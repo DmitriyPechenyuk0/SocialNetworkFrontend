@@ -28,6 +28,7 @@ export const styles = StyleSheet.create({
 	text: {
 		fontFamily: font.medium.fontFamily,
 		fontSize: FONT_SIZE.defaultP,
+		color: COLORS.white,
 	},
 	textFill: {
 		color: COLORS.white,

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import type { TouchableOpacityProps, ViewStyle } from "react-native";
+import type { TextStyle, TouchableOpacityProps, ViewStyle } from "react-native";
 
 export interface ButtonProps extends TouchableOpacityProps {
 	text?: string;
@@ -7,4 +7,5 @@ export interface ButtonProps extends TouchableOpacityProps {
 	iconLeft?: ReactNode;
 	iconRight?: ReactNode;
 	buttonStyle?: ViewStyle;
+	textStyle?: TextStyle;
 }
