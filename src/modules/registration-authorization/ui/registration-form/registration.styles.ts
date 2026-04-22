@@ -81,6 +81,7 @@ export const styles = StyleSheet.create({
         color: COLORS.blue,
         textAlign: 'center',
         lineHeight: 20,
+        fontWeight: '500',
     },
     modalButton: {
         marginTop: 10,
