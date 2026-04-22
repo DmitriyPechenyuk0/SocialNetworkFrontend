@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
 	outline: {
 		backgroundColor: "transparent",
 		borderWidth: 1,
-		borderRightColor: COLORS.plum,
+		borderColor: COLORS.plum,
 	},
 	text: {
 		fontFamily: font.medium.fontFamily,

@@ -88,6 +88,7 @@ export default function TabLayout() {
 				name="friends"
 				options={{
 					title: "",
+					header: () => <Header hidePlus />,
 					tabBarIcon: ({ focused }) => (
 						<View
 							style={{
@@ -118,6 +119,7 @@ export default function TabLayout() {
 				name="chats"
 				options={{
 					title: "",
+					header: () => <Header hideSettings />,
 					tabBarIcon: ({ focused }) => (
 						<View
 							style={{
@@ -147,9 +149,9 @@ export default function TabLayout() {
 			
 			<Tabs.Screen
                 name="settings"
-                options={{
-                    href: null, 
-                }}
+				options={{
+					href: null
+				}}
             />
 		</Tabs>
 	);
