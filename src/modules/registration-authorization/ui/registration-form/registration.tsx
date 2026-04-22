@@ -18,6 +18,7 @@ export function Registration() {
     const [register, { data, isSuccess, isLoading }] = useRegisterMutation();
     const [code, setCode] = useState(['', '', '', '', '', '']);
     const inputs = useRef<Array<TextInput | null>>([]);
+    const isCodeComplete = code.every(char => char.length === 1);
 
     const {
         control,
@@ -54,6 +55,16 @@ export function Registration() {
         if (text.length > 0 && index < 5) {
             inputs.current[index + 1]?.focus();
         }
+    };
+
+    const handleConfirm = () => {
+        if (!isCodeComplete) {
+            alert("Будь ласка, введіть повний 6-значний код");
+            return;
+        }
+        
+        setShowOtpModal(false);
+        router.replace("/(tabs)");
     };
 
     const handleKeyPress = (e: any, index: number) => {
@@ -170,10 +181,8 @@ export function Registration() {
                             variant="fill" 
                             text="Підтвердити" 
                             style={styles.modalButton}
-                            onPress={() => {
-                                setShowOtpModal(false);
-                                router.replace("/(tabs)");
-                            }} 
+                            disabled={!isCodeComplete}
+                            onPress={handleConfirm}
                         />
                         
                         <TouchableOpacity 
