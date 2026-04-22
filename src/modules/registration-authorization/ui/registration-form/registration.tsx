@@ -1,21 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
-import { View, StyleSheet, Alert, Text, Modal, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, Modal, TouchableOpacity, TextInput } from "react-native";
 import { styles } from "./registration.styles";
 import { Input } from "@shared/ui/input";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registrationSchema } from "../../model/schemas/registration-schema";
 import { Button } from "@shared/ui/button";
-import { useRegisterMutation } from "../../api/auth-api";
+import { useRegisterMutation, useVerifyEmailMutation } from "../../api/auth-api";
 import { useRouter } from "expo-router";
-import { RegistrationRequest } from "@modules/registration-authorization/api/api.types";
-
-
+import { RegisterRequest } from "../../api/api.types";
 
 export function Registration() {
     const router = useRouter();
     const [showOtpModal, setShowOtpModal] = useState(false);
+    
     const [register, { data, isSuccess, isLoading }] = useRegisterMutation();
+    const [verifyEmail, { isLoading: isVerifying }] = useVerifyEmailMutation();
+
     const [code, setCode] = useState(['', '', '', '', '', '']);
     const inputs = useRef<Array<TextInput | null>>([]);
     const isCodeComplete = code.every(char => char.length === 1);
@@ -23,6 +24,7 @@ export function Registration() {
     const {
         control,
         handleSubmit,
+        getValues,
         formState: { errors },
     } = useForm({
         resolver: yupResolver(registrationSchema),
@@ -34,16 +36,35 @@ export function Registration() {
     });
 
     useEffect(() => {
-        if (isSuccess && data) {
+        if (isSuccess) {
             setShowOtpModal(true);
         }
-    }, [isSuccess, data]);
+    }, [isSuccess]);
 
-    const onSubmit = async (formData: RegistrationRequest) => {
+    const onSubmit = async (formData: RegisterRequest) => {
         try {
             await register(formData).unwrap(); 
-        } catch (e) {
-            console.error("Помилка при реєстрації:", e);
+        } catch (e: any) {
+            alert(e.data?.message || "Помилка при реєстрації");
+        }
+    };
+
+    const handleConfirm = async () => {
+        if (!isCodeComplete) {
+            alert("Будь ласка, введіть повний 6-значний код");
+            return;
+        }
+
+        try {
+            const email = getValues("email");
+            const fullCode = code.join('');
+            
+            await verifyEmail({ email, code: fullCode }).unwrap();
+            
+            setShowOtpModal(false);
+            router.replace("/(tabs)");
+        } catch (e: any) {
+            alert(e.data?.message || "Невірний код підтвердження");
         }
     };
 
@@ -57,16 +78,6 @@ export function Registration() {
         }
     };
 
-    const handleConfirm = () => {
-        if (!isCodeComplete) {
-            alert("Будь ласка, введіть повний 6-значний код");
-            return;
-        }
-        
-        setShowOtpModal(false);
-        router.replace("/(tabs)");
-    };
-
     const handleKeyPress = (e: any, index: number) => {
         if (e.nativeEvent.key === 'Backspace' && code[index] === '' && index > 0) {
             inputs.current[index - 1]?.focus();
@@ -75,7 +86,7 @@ export function Registration() {
 
     return (
         <View style={styles.container}>
-            <View style = {styles.formWrapper}>
+            <View style={styles.formWrapper}>
                 <Controller
                     control={control}
                     name="email"
@@ -106,8 +117,8 @@ export function Registration() {
                                 fieldType="password"
                                 value={value}
                                 onChangeText={onChange}
-                                isValidate={!!errors.confirmPassword}
-                                errorMessage={errors.confirmPassword?.message}
+                                isValidate={!!errors.password}
+                                errorMessage={errors.password?.message}
                             />
                         </View>
                     )}
@@ -137,8 +148,8 @@ export function Registration() {
                     text={isLoading ? "Зачекайте..." : "Створити акаунт"}
                     style={styles.submitButton}
                     textStyle={{ fontSize: 18, fontWeight: "600" }}
-                    disabled={ isLoading }
-                    onPress={() => setShowOtpModal(true)}
+                    disabled={isLoading}
+                    onPress={handleSubmit(onSubmit)}
                 />
             </View>
 
@@ -179,10 +190,10 @@ export function Registration() {
 
                         <Button 
                             variant="fill" 
-                            text="Підтвердити" 
+                            text={isVerifying ? "Перевірка..." : "Підтвердити"} 
                             style={styles.modalButton}
-                            disabled={!isCodeComplete}
-                            onPress={handleConfirm}
+                            disabled={!isCodeComplete || isVerifying}
+                            onPress={handleConfirm} // Викликає верифікацію на БК
                         />
                         
                         <TouchableOpacity 
@@ -196,6 +207,6 @@ export function Registration() {
                 </View>
             </Modal>
         </View>
-    )
+    );
 }
 

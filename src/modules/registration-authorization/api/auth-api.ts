@@ -1,36 +1,52 @@
 import { baseApi } from '../../../shared/api/base';
-import { AuthResponse, RegistrationRequest } from './api.types';
+import type { 
+    RegisterRequest, 
+    AuthRequest, 
+    VerifyRequest, 
+    AuthResponse, 
+    RefreshRequest, 
+    AccessTokenResponse
+} from "./api.types";
 
 export const authApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        register: builder.mutation<AuthResponse, RegistrationRequest>({
-            async queryFn(arg: RegistrationRequest) {
-                try {
-                    console.log("Дані з форми:", arg.email);
-                    
-                    await new Promise((resolve) => setTimeout(resolve, 1000));
+        register: builder.mutation<void, RegisterRequest>({
+            query: (body) => ({
+                url: '/register',
+                method: 'POST',
+                body,
+            }),
+        }),
 
-                    return {
-                        data: {
-                            token: "fake-token",
-                            user: {
-                                id: 1,
-                                email: arg.email,
-                            }
-                        }
-                    };
-                } catch (error) {
-                    return { 
-                        error: { 
-                            status: 500, 
-                            data: error instanceof Error ? error.message : "Internal Server Error" 
-                        } 
-                    };
-                }
-            }
-        })
+        verifyEmail: builder.mutation<AuthResponse, VerifyRequest>({
+            query: (body) => ({
+                url: '/email-verification',
+                method: 'POST',
+                body,
+            }),
+        }),
+
+        login: builder.mutation<AuthResponse, AuthRequest>({
+            query: (body) => ({
+                url: '/login',
+                method: 'POST',
+                body,
+            }),
+        }),
+
+        refreshAccessToken: builder.mutation<AccessTokenResponse, RefreshRequest>({
+            query: (body) => ({
+                url: '/refresh',
+                method: 'POST',
+                body,
+            }),
+        }),
     }),
-    overrideExisting: true,
 });
 
-export const { useRegisterMutation } = authApi;
+export const { 
+    useRegisterMutation, 
+    useVerifyEmailMutation, 
+    useLoginMutation,
+    useRefreshAccessTokenMutation 
+} = authApi;

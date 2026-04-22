@@ -1,14 +1,26 @@
-export interface RegistrationRequest{
+export interface RegisterRequest {
     email: string;
     password: string;
 }
 
-export interface User{
-    id: number;
+export interface AuthRequest {
     email: string;
+    password: string;
 }
 
-export interface AuthResponse{
-    user: User;
-    token: string;
+export interface AccessTokenResponse {
+    accessToken: string;
+}
+
+export interface VerifyRequest {
+    email: string;
+    code: string;
+}
+
+export interface AuthResponse {
+    refreshToken: string;
+}
+
+export interface RefreshRequest {
+    refreshToken: string;
 }
