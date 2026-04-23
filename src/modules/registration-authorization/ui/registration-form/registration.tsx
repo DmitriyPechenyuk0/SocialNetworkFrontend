@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import React, { useState, useEffect, useRef } from "react";
 import { View, Text, Modal, TouchableOpacity, TextInput } from "react-native";
 import { styles } from "./registration.styles";
@@ -9,8 +10,10 @@ import { Button } from "@shared/ui/button";
 import { useRegisterMutation, useVerifyEmailMutation } from "../../api/auth-api";
 import { useRouter } from "expo-router";
 import { RegisterRequest } from "../../api/api.types";
+import { setCredentials } from "../../api/auth.slice";
 
 export function Registration() {
+    const dispatch = useDispatch();
     const router = useRouter();
     const [showOtpModal, setShowOtpModal] = useState(false);
     
@@ -42,10 +45,17 @@ export function Registration() {
     }, [isSuccess]);
 
     const onSubmit = async (formData: RegisterRequest) => {
+        console.log("Дані форми валідні, відправка на бк:", formData);
         try {
-            await register(formData).unwrap(); 
+            const result = await register(formData).unwrap(); 
+
+            if(result.token){
+                dispatch(setCredentials({ token: result.token }));
+                console.log("Токен збережено в стор")
+            }
         } catch (e: any) {
             alert(e.data?.message || "Помилка при реєстрації");
+            console.error("Помилка при реєстрації:", e);
         }
     };
 

@@ -5,12 +5,13 @@ import type {
     VerifyRequest, 
     AuthResponse, 
     RefreshRequest, 
-    AccessTokenResponse
+    AccessTokenResponse,
+    RegisterResponse
 } from "./api.types";
 
 export const authApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        register: builder.mutation<void, RegisterRequest>({
+        register: builder.mutation<RegisterResponse, RegisterRequest>({
             query: (body) => ({
                 url: '/register',
                 method: 'POST',
